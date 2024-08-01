@@ -21,12 +21,12 @@ namespace ConsoleApp1
         { 
             this.soCMND = "";
             this.phongBan = "";
-            this.hoTen = "";
+            this.HoTen = "";
         }
         public NhanVien(string soCMND, string hoTen, string phongBan)
         {
             this.soCMND = soCMND;
-            HoTen = hoTen;
+            this.HoTen = hoTen;
             this.phongBan = phongBan;
         }
         public virtual void nhap()
