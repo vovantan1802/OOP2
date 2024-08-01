@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,14 +21,33 @@ namespace ConsoleApp1
         }
         public void hienthi()
         {
+            double tongLuongBienChe = 0;
+            double tongLuongHopDong = 0;
+
             foreach (NhanVien nv in list)
             {
                 Console.WriteLine("So CMND:{0}",nv.SoCMND);
                 Console.WriteLine("Ho ten:{0}", nv.HoTen);
                 Console.WriteLine("Phong ban:{0}", nv.PhongBan);
                 Console.WriteLine("Loai nhan vien:{0}", nv.loaiNV());
-                Console.WriteLine("Luong:{0}.000VND", nv.tinhLuong());
+
+                double luong = nv.tinhLuong();
+                Console.WriteLine("Luong: ${0}", luong);
+
+
+                if (nv is BienChe)
+                {
+                    tongLuongBienChe += luong;
+                }
+                else if (nv is HopDong)
+                {
+                    tongLuongHopDong += luong;
+                }
             }
+
+            Console.WriteLine("Tong luong nhan vien bien che: ${0}", tongLuongBienChe);
+            Console.WriteLine("Tong luong nhan vien hop dong: ${0}", tongLuongHopDong);
+        }
         }
     }
-}
+
